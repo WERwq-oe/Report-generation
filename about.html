@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AvThR - AI Report & Quiz Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <h1>AvThR</h1>
+            </div>
+            <div class="nav-items">
+                <a href="index.html" class="nav-item" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="report.html" class="nav-item" data-page="report">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="quiz.html" class="nav-item" data-page="quiz">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Quiz</span>
+                </a>
+                <a href="about.html" class="nav-item active" data-page="about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="faq.html" class="nav-item" data-page="faq">
+                    <i class="fas fa-question"></i>
+                    <span>FAQ</span>
+                </a>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Page -->
+            <section class="page active" id="about">
+                <div class="page-header">
+                    <a href="index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h2>About AvThR</h2>
+                </div>
+
+                <div class="content-container">
+                    <div class="about-content">
+                        <h3>About AvThR</h3>
+                        <p>AvThR is a powerful AI-driven platform that generates comprehensive reports and interactive quizzes on any topic. Built with cutting-edge technology and powered by Th Logic AI, it provides students, educators, and professionals with instant access to quality educational content.</p>
+
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-file-alt"></i>
+                                <h4>Report Generation</h4>
+                                <p>Generate detailed, well-structured reports with proper formatting and citations.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>Interactive Quizzes</h4>
+                                <p>Create engaging quizzes with multiple formats including MCQs, flashcards, and more.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-download"></i>
+                                <h4>Multiple Formats</h4>
+                                <p>Download your content in PDF, DOCX, and HTML formats with perfect pagination.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-magic"></i>
+                                <h4>AI-Powered</h4>
+                                <p>Leveraging advanced AI technology for accurate and comprehensive content generation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvThR - AI Report & Quiz Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-brand">
+                <h1>AvThR</h1>
+            </div>
+            <div class="nav-items">
+                <button class="nav-item active" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+                <button class="nav-item" data-page="report">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </button>
+                <button class="nav-item" data-page="quiz">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Quiz</span>
+                </button>
+                <button class="nav-item" data-page="about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </button>
+                <button class="nav-item" data-page="faq">
+                    <i class="fas fa-question"></i>
+                    <span>FAQ</span>
+                </button>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <section class="page active" id="home">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h2 class="hero-title">Generate Reports & Quizzes with AI</h2>
+                        <p class="hero-subtitle">Create detailed reports and interactive quizzes on any topic, instantly. Powered by Th Logic AI - No login required, completely free.</p>
+                        
+                        <!-- Animated Features -->
+                        <div class="features-scroll">
+                            <div class="feature-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>PDF Reports with Perfect Pagination</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-pen-fancy"></i>
+                                <span>Beautiful Handwritten Typography</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Interactive Quiz Generation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-download"></i>
+                                <span>Multiple Export Formats</span>
+                            </div>
+                        </div>
+
+                        <div class="cta-buttons">
+                            <button class="btn btn-primary" onclick="showPage('report')">
+                                <i class="fas fa-file-alt"></i>
+                                Generate Report
+                            </button>
+                            <button class="btn btn-secondary" onclick="showPage('quiz')">
+                                <i class="fas fa-question-circle"></i>
+                                Generate Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report Generation Page -->
+            <section class="page" id="report">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Generate Report</h2>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="reportTopic">Topic</label>
+                        <input type="text" id="reportTopic" placeholder="Enter your topic (e.g., Climate Change, World War II)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Report Length</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="reportLength" value="short" checked>
+                                <span>Short (500-800 words)</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="reportLength" value="medium">
+                                <span>Medium (1000-1500 words)</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="reportLength" value="long">
+                                <span>Long (2000+ words)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Text Format</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="textFormat" value="normal" checked>
+                                <span>Normal Text</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="textFormat" value="handwritten">
+                                <span class="handwritten-text">Handwritten Style</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Formatting Options</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="formatting" value="bullet" checked>
+                                <span>Bullet Points</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="formatting" value="numbered" checked>
+                                <span>Numbered Lists</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="formatting" value="tables">
+                                <span>Tables</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="formatting" value="headings" checked>
+                                <span>Section Headings</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full" onclick="generateReport()">
+                        <i class="fas fa-magic"></i>
+                        Generate Report
+                    </button>
+                </div>
+            </section>
+
+            <!-- Quiz Generation Page -->
+            <section class="page" id="quiz">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Generate Quiz</h2>
+                </div>
+
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="quizTopic">Topic</label>
+                        <input type="text" id="quizTopic" placeholder="Enter your topic (e.g., History, Science, Literature)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quiz Types (Select multiple)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="quizType" value="mcq" checked>
+                                <span>Multiple Choice Questions</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="quizType" value="oneword">
+                                <span>One-Word Answers</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="quizType" value="flashcard">
+                                <span>Flashcards</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numQuestions">Number of Questions</label>
+                            <input type="number" id="numQuestions" value="10" min="5" max="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty</label>
+                            <select id="difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full" onclick="generateQuiz()">
+                        <i class="fas fa-magic"></i>
+                        Generate Quiz
+                    </button>
+                </div>
+            </section>
+
+            <!-- About Page -->
+            <section class="page" id="about">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>About AvThR</h2>
+                </div>
+
+                <div class="content-container">
+                    <div class="about-content">
+                        <h3>About AvThR</h3>
+                        <p>AvThR is a powerful AI-driven platform that generates comprehensive reports and interactive quizzes on any topic. Built with cutting-edge technology and powered by Th Logic AI, it provides students, educators, and professionals with instant access to quality educational content.</p>
+
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-file-alt"></i>
+                                <h4>Report Generation</h4>
+                                <p>Generate detailed, well-structured reports with proper formatting and citations.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>Interactive Quizzes</h4>
+                                <p>Create engaging quizzes with multiple formats including MCQs, flashcards, and more.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-download"></i>
+                                <h4>Multiple Formats</h4>
+                                <p>Download your content in PDF, DOCX, and HTML formats with perfect pagination.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-magic"></i>
+                                <h4>AI-Powered</h4>
+                                <p>Leveraging advanced AI technology for accurate and comprehensive content generation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Page -->
+            <section class="page" id="faq">
+                <div class="page-header">
+                    <button class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+
+                <div class="content-container">
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What is AvThR?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>AvThR is a free AI-powered platform that generates comprehensive reports and interactive quizzes on any topic. It's designed to help students, educators, and professionals create quality educational content instantly.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>How do I generate a report?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Simply enter your topic, select the desired length and formatting options, then click "Generate Report". The AI will create a comprehensive report that you can download in multiple formats.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Can I download the generated content?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! You can download reports and quizzes in PDF, DOCX, and HTML formats. All downloads maintain proper formatting and pagination.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>Is AvThR free to use?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, AvThR is completely free to use. No registration or payment required. We believe in making quality educational tools accessible to everyone.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <span>What quiz formats are available?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can generate multiple choice questions (MCQs), one-word answers, and interactive flashcards. You can select multiple formats for a single quiz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Modal -->
+        <div class="modal" id="loadingModal">
+            <div class="modal-content loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">
+                    <span id="loadingMessage">Th Logic is thinking...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Preview Modal -->
+        <div class="modal" id="reportModal">
+            <div class="modal-content report-content">
+                <div class="modal-header">
+                    <h3>Report Preview</h3>
+                    <button class="close-btn" onclick="closeModal('reportModal')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="report-preview" id="reportPreview"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="downloadReport('pdf')">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadReport('docx')">
+                        <i class="fas fa-file-word"></i>
+                        Download DOCX
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Preview Modal -->
+        <div class="modal" id="quizModal">
+            <div class="modal-content quiz-content">
+                <div class="modal-header">
+                    <h3>Quiz Preview</h3>
+                    <button class="close-btn" onclick="closeModal('quizModal')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="quiz-preview" id="quizPreview"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="downloadQuiz()">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                    <button class="btn btn-primary" onclick="startQuiz()">
+                        <i class="fas fa-play"></i>
+                        Start Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
